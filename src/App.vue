@@ -1,37 +1,40 @@
 <script>
-import { reactive } from 'vue';
-import AccountInfo from './components/AccountInfo.vue';
+import { reactive } from "vue";
+import AccountInfo from "./components/AccountInfo.vue";
 
 export default {
   components: {
-    AccountInfo
+    AccountInfo,
   },
   setup() {
     const sc = reactive({
-      test: '123'
-    })
+      test: "123",
+    });
 
     return {
-      sc
-    }
+      sc,
+    };
   },
   data() {
     return {
       user: {
-        username: {}
-      }
-    }
+        username: {},
+      },
+    };
   },
   methods: {
     changeUsername(username) {
       this.user.username = username;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <template>
   <div>
-    <account-info :username="user.username" @changeUsername="changeUsername($event)" />
+    <account-info
+      :username="user.username"
+      @changeUsername="changeUsername($event)"
+    />
   </div>
 </template>
