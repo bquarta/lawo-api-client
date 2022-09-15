@@ -21,7 +21,7 @@
     <div class="sc_card">
       <div class="sc_section">
         <figure class="sc_user-image">
-          <img :src="'/no-image.jpg'" />
+          <img :src="'wp-content/plugins/lawo-api-client/images/no-image.jpg'" />
         </figure>
 
         <div class="sc_userinfo">
@@ -47,7 +47,7 @@
         </div>
 
         <figure class="sc_qrcode">
-          <img :src="'/qr.svg'" />
+          <img :src="'wp-content/plugins/lawo-api-client/images/qr.svg'" />
         </figure>
 
         <button class="sc-button et_pb_button_wrapper">
@@ -82,8 +82,11 @@ export default {
   },
   methods: {
     getSalesContact() {
+      axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
       axios
         .get("https://jsonplaceholder.typicode.com/users/" + this.countryKey)
+        //.get("http://v220191072921100006.goodsrv.de:5000/v1/sales-contacts/" + this.countryKey)
         .then((response) => {
           console.log(response.data);
 
