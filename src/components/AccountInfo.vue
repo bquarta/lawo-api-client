@@ -19,42 +19,46 @@
     </select>
 
     <div class="sc_card">
-      <div class="sc_section">
-        <figure class="sc_user-image">
-          <img :src="'wp-content/plugins/lawo-api-client/images/no-image.jpg'" />
-        </figure>
+      <div class="sc_wrapper">
+        <div class="sc_section">
+          <figure class="sc_user-image">
+            <img
+              :src="'wp-content/plugins/lawo-api-client/images/no-image.jpg'"
+            />
+          </figure>
 
-        <div class="sc_userinfo">
-          <div class="sc_country">Hier Feld Land einfügen</div>
-          <div class="sc_name">{{ username.name }}</div>
-        </div>
-      </div>
-
-      <div class="sc_section">
-        <div class="sc_details">
-          <div class="sc_detail-item">
-            <span>Phone:</span> {{ username.phone }}
-          </div>
-          <div class="sc_detail-item">
-            <span>Mobile:</span> {{ username.phone }}
-          </div>
-          <div class="sc_detail-item">
-            <span>Email:</span> {{ username.email }}
-          </div>
-          <div class="sc_detail-item">
-            <span>Web:</span> https://{{ username.website }}
+          <div class="sc_userinfo">
+            <div class="sc_country">Hier Feld Land einfügen</div>
+            <div class="sc_name">{{ username.name }}</div>
           </div>
         </div>
 
-        <figure class="sc_qrcode">
-          <img :src="'wp-content/plugins/lawo-api-client/images/qr.svg'" />
-        </figure>
+        <div class="sc_section">
+          <div class="sc_details">
+            <div class="sc_detail-item">
+              <span>Phone:</span> {{ username.phone }}
+            </div>
+            <div class="sc_detail-item">
+              <span>Mobile:</span> {{ username.phone }}
+            </div>
+            <div class="sc_detail-item">
+              <span>Email:</span> {{ username.email }}
+            </div>
+            <div class="sc_detail-item">
+              <span>Web:</span> https://{{ username.website }}
+            </div>
+          </div>
 
-        <button class="sc-button et_pb_button_wrapper">
-          <a class="et_pb_button et_pb_promo_button" href="link-zum-download"
-            >Visitenkarte speichern</a
-          >
-        </button>
+          <figure class="sc_qrcode">
+            <img :src="'wp-content/plugins/lawo-api-client/images/qr.svg'" />
+          </figure>
+
+          <button class="sc-button et_pb_button_wrapper">
+            <a class="et_pb_button et_pb_promo_button" href="link-zum-download"
+              >Visitenkarte speichern</a
+            >
+          </button>
+        </div>
       </div>
 
       <div class="sc_card-oblique"></div>
@@ -82,7 +86,7 @@ export default {
   },
   methods: {
     getSalesContact() {
-      axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+      axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 
       axios
         .get("https://jsonplaceholder.typicode.com/users/" + this.countryKey)
