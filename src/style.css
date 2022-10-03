@@ -5,12 +5,12 @@
   margin: 0;
   padding: 0;
   background: white;
-  width: 1200px;
+  max-width: 1280px;
   margin: auto;
 }
 
 #account-info {
-  font-family: Open Sans, Arial, sans-serif;
+  font-family: "Open Sans", Arial, sans-serif;
   position: relative;
 }
 
@@ -24,6 +24,9 @@
   margin: 3em auto 0 auto;
   padding: 1em;
   border: 1px solid #ccc;
+}
+.sc_card:first-child {
+  margin-top: 0;
 }
 
 .sc_wrapper {
@@ -79,12 +82,15 @@
 }
 
 .sc_qrcode {
-  margin: 1em;
+  margin: .5em;
 }
 
-.sc_qrcode img {
+.sc_qrcode img,
+.sc_qrcode canvas {
+  padding: .5em;
   width: 100%;
-  max-width: 150px;
+  max-width: 175px;
+  background-color: #ffffff;
 }
 
 .sc-button {
@@ -183,38 +189,42 @@ option:checked {
  */
 .radio-toolbar {
   margin: 0;
+  display: flex;
 }
 
 .radio-item {
   margin-left: 10px;
   display: inline;
   vertical-align: top;
-}
-.radio-item:hover {
-  /* Todo: cursor is ignored 
-  cursor: crosshair;
-  */
-}
-.radio-item:first-child {
-  margin-left: 0;
+  flex-basis: 0;
+  flex-grow: 1;
 }
 
-.radio-options-wrapper {
-  display: inline-block;
+.radio-item label:hover {
+  cursor: pointer;
+}
+
+.radio-item:first-child {
+  margin-left: 0;
 }
 
 .option-sublist {
   list-style: none;
   padding: 0;
   margin-top: 0;
+  /* display: none; */
 }
 .option-sublist li {
+  font-size: .8em;
   color: #333333;
-  padding: 5px 15px;
+  padding: 3px 15px;
   margin-top: 1px;
 }
 .option-sublist li:hover {
   background-color: #efefef;
+}
+.option-sublist.inactive li a {
+  color: #d4d4d4;
 }
 
 .radio-toolbar input[type="radio"],
@@ -225,19 +235,17 @@ option:checked {
 }
 
 .radio-toolbar label {
-  display: inline-block;
+  display: block;
   background-color: #efefef;
   padding: 10px 20px;
-  font-family: sans-serif, Arial;
   font-size: 16px;
   border: 1px solid #efefef; /* #0078ad* */
   border-radius: 3px;
   color: #333333;
 
-  width: 149px;
+  /* width: 149px; */
   height: 40px;
   text-align: center;
-  vertical-align: middle;
   line-height: 1.2;
 
   -webkit-touch-callout: none; /* iOS Safari */
@@ -273,4 +281,29 @@ option:checked {
   color: #ffffff;
   background-color: #de006e;
   border-color: #de006e;
+}
+
+
+/* ------------ */
+.main-content {
+  display: flex;
+}
+
+.section-country{
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 208px;
+  background-color: #efefef;
+}
+
+.section-contacts{
+  flex-basis: 0;
+  flex-grow: 3;
+  background-color: #dedede;
+}
+
+.country-list {
+  padding: 0;
+  list-style: none;
+  font-size: 0.8em;
 }

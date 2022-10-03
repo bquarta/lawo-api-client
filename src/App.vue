@@ -1,40 +1,55 @@
+<template>
+  <main>
+
+    <region-list />
+
+    <div class="main-content">
+      <div class="section-country">
+        <country-list />
+      </div>
+      <div class="section-contacts">
+        <sales-contact-list />
+      </div>
+    </div>
+
+  </main>
+</template>
+
+
 <script>
-import { reactive } from "vue";
-import AccountInfo from "./components/AccountInfo.vue";
+import RegionList from "./components/RegionList.vue";
+import CountryList from "./components/CountryList.vue";
+import SalesContactList from "./components/SalesContactList.vue";
 
 export default {
   components: {
-    AccountInfo,
+    RegionList,
+    CountryList,
+    SalesContactList
   },
-  setup() {
-    const sc = reactive({
-      test: "123",
-    });
+  computed: {
+    filteredTerritories() {
+      if (this.territories != null) {
+        return this.territories.filter((territory) => {
 
-    return {
-      sc,
-    };
-  },
-  data() {
-    return {
-      user: {
-        username: {},
-      },
-    };
-  },
-  methods: {
-    changeUsername(username) {
-      this.user.username = username;
-    },
-  },
+          // let activeRegions = this.regions.filter((region) => region.isActive);
+          // console.log(activeRegions);
+
+          // let region = this.regions.filter((region) => region.regionCode === territory.region.regionCode);
+
+          // if ((territory.region.regionCode === region[0].regionCode)) return true;
+
+          return false;
+
+          // WENN territory.region == region.isActive
+
+          // return territory.reduce((accumulator, currentValue) => {
+          //   return accumulator + currentValue;
+          // }, null)
+
+        })
+      }
+    }
+  }
 };
 </script>
-
-<template>
-  <div>
-    <account-info
-      :username="user.username"
-      @changeUsername="changeUsername($event)"
-    />
-  </div>
-</template>
