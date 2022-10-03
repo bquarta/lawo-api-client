@@ -39,7 +39,7 @@
                 </figure>
 
                 <button class="sc-button et_pb_button_wrapper">
-                    <a class="et_pb_button et_pb_promo_button" href="link-zum-download">Visitenkarte speichern</a>
+                    <a class="et_pb_button et_pb_promo_button" :download="vCardName" :href="vCardLink">Visitenkarte speichern</a>
                 </button>
             </div>
         </div>
@@ -63,6 +63,15 @@ export default {
             detailsAreVisible: true,
             qrSize: 175
         };
+    },
+    computed: {
+        vCardName() {
+            return 'Lawo_' + this.contact.firstName + '_' + this.contact.lastName + '.vcf';
+        },
+        vCardLink() {
+            const vCard = new Blob([this.contact.vCard], { type: 'text/vcard' });
+            return window.URL.createObjectURL(vCard);
+        }
     },
     methods: {
         toggleDetails() {
