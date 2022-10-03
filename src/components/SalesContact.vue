@@ -8,13 +8,13 @@
 
                 <div class="sc_userinfo">
                     <div v-if="contact.countries.length > 1" class="sc_country">{{ contact.countries.length }} Countries</div>
-                    <div v-else class="sc_country">{{ contact.countries[0].name }}</div>
+                    <div v-else-if="contact.countries.length == 1" class="sc_country">{{ contact.countries[0].name }}</div>
 
                     <div class="sc_name">{{ contact.firstName }} {{ contact.lastName }}</div>
                     
                     <!-- Todo: Filter -->
                     <div v-if="contact.countries.length > 1 && contact.salesCompanies.length > 1">{{ contact.salesCompanies.length }} Companies</div>
-                    <div v-else>{{ contact.salesCompanies[0].name }}</div>
+                    <div v-else-if="contact.salesCompanies.length == 1">{{ contact.salesCompanies[0].name }}</div>
                 </div>
             </div>
 
