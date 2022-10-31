@@ -18,7 +18,7 @@ const actions = {
         // state.isLoading = true;
         // state.error = null;
 
-        axios.get('https://api.lawo.online/v1/territory/')
+        axios.get('https://lapi.ocean-erp.de/v1/territory/')
              .then((response) => {
 
                 commit('setTerritories', response.data);

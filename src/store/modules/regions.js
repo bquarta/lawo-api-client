@@ -19,7 +19,7 @@ const actions = {
         // state.error = null;
 
         axios
-            .get('https://api.lawo.online/v1/region/')
+            .get('https://lapi.ocean-erp.de/v1/region/')
             .then((response) => {
                 // add default "isActive"-Property for each region
                 for (const region of response.data) {

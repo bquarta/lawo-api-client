@@ -1,15 +1,15 @@
 <template>
   <div class="radio-item">
 
-    <input type="checkbox" :id="region.regionCode" name="region" @change="toggleRegion" :checked="active">
+    <input type="checkbox" :id="continent.continentCode" name="continent" @change="toggleContinent" :checked="active">
 
-    <label :for="region.regionCode">
-      <span>{{ region.name }}</span>
+    <label :for="continent.continentCode">
+      <span>{{ continent.name }}</span>
     </label>
 
-    <ul v-if="isShowTerritories" :id="'territories-' + region.regionCode" class="option-sublist "
+    <ul v-if="isShowTerritories" :id="'territories-' + continent.continentCode" class="option-sublist "
       :class="{inactive: !active}">
-      <territory-item v-for="territory in region.territories" :territory="territory" />
+      <territory-item v-for="territory in continent.territories" :territory="territory" />
     </ul>
 
   </div>
@@ -24,7 +24,7 @@ export default {
     TerritoryItem
   },
   props: {
-    region: {
+    continent: {
       type: Object,
       default: {},
     },
@@ -41,22 +41,22 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'allRegions'
+      'allContinents'
     ])
   },
   methods: {
     ...mapMutations([
-      'setRegionIsActive'
+      'setContinentIsActive'
     ]),
 
-    toggleRegion(e) {
+    toggleContinent(e) {
       const checkbox = e.target;
       const payload = { 
-        regionCode: checkbox.id, 
+        continentCode: checkbox.id, 
         isActive: checkbox.checked 
       }
 
-      this.setRegionIsActive(payload);
+      this.setContinentIsActive(payload);
     }
   }
 };

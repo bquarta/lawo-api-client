@@ -1,8 +1,8 @@
 <template>
     <select v-if="isDropdown" name="countries" id="countrie" class="sc_select"
         @change="updateContact" v-model="selectedCountry">
-        <optgroup v-for="territory in allTerritories" :key="territory.guid" :label="territory.name">
-            <option v-for="country in this.sortByName(territory.countries)" :value="country.isoCode">{{ country.name }}
+        <optgroup v-for="continent in allContinents" :key="continent.guid" :label="continent.name">
+            <option v-for="country in this.sortByName(continent.countries)" :value="country.isoCode">{{ country.name }}
             </option>
         </optgroup>
     </select>
@@ -25,10 +25,10 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['allTerritories', 'allCountries'])
+        ...mapGetters(['allTerritories', 'allCountries', 'allContinents'])
     },
     methods: {
-        ...mapActions(['getTerritories', 'getCountries', 'getContacts']),
+        ...mapActions(['getTerritories', 'getCountries', 'getContacts', 'getContinents']),
 
         sortByName(list) {
             return list.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
@@ -43,6 +43,7 @@ export default {
         }
     },
     created() {
+        this.getContinents();
         this.getTerritories();
         this.getCountries();
     },

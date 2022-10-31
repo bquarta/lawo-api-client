@@ -26,7 +26,7 @@ const actions = {
             payload.country = 'country/' + payload.country;
         }
 
-        axios.get('https://api.lawo.online/v1/sales-contacts/' + payload.country)
+        axios.get('https://lapi.ocean-erp.de/v1/sales-contacts/' + payload.country)
             .then((response) => {
 
                 commit('setContacts', response.data);

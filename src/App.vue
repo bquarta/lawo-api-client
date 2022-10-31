@@ -1,7 +1,8 @@
 <template>
   <main>
 
-    <region-list />
+    <!--<region-list />-->
+    <continent-list />
 
     <div class="main-content">
       <div class="section-country">
@@ -17,12 +18,14 @@
 
 
 <script>
+import ContinentList from "./components/ContinentList.vue";
 import RegionList from "./components/RegionList.vue";
 import CountryList from "./components/CountryList.vue";
 import SalesContactList from "./components/SalesContactList.vue";
 
 export default {
   components: {
+    ContinentList,
     RegionList,
     CountryList,
     SalesContactList
